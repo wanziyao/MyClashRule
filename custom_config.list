@@ -164,6 +164,7 @@ DOMAIN-SUFFIX,api.installer.xiaomi.com
 DOMAIN-SUFFIX,api.jietuhb.com
 DOMAIN-SUFFIX,api.kingdata.ksyun.com
 DOMAIN-SUFFIX,api.statsig.com
+DOMAIN-SUFFIX,api.qbb6.com
 DOMAIN-SUFFIX,api5-normal-quic-lf.ixigua.com
 DOMAIN-SUFFIX,apiyd.my91app.com
 DOMAIN-SUFFIX,apks.webxiaobai.top
@@ -314,6 +315,7 @@ DOMAIN-SUFFIX,imageplus.baidu.com
 DOMAIN-SUFFIX,images.outbrainimg.com
 DOMAIN-SUFFIX,images.pinduoduo.com
 DOMAIN-SUFFIX,img-c.heytapimage.com
+DOMAIN-SUFFIX,img-x.jd.com
 DOMAIN-SUFFIX,img.adnyg.com
 DOMAIN-SUFFIX,img.adnyg.com.w.kunlungr.com
 DOMAIN-SUFFIX,imtmp.net
