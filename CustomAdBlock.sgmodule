@@ -1,0 +1,17 @@
+#!name=自定义去广告与净化
+#!desc=拦截 360智慧生活 广告与爱回收开屏接口
+#!author=子瑶
+#!category=去广告模块
+#!system=ios
+
+[Rule]
+# 360智慧生活云录广告
+DOMAIN,ad.iot.360.cn,REJECT
+
+[Map Local]
+# 爱回收开屏，返回 HTTP 200 和空 JSON 数据（等同于 QX 的 reject-200）
+^https?:\/\/ahs-pub\.aihuishou\.com\/official\/eagle\/cms\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+[MITM]
+# 必须配置 MITM 才能对 HTTPS 请求进行 Map Local 重写
+hostname = %APPEND% ahs-pub.aihuishou.com
