@@ -99,4 +99,4 @@ ximalaya_homePage = type=http-response,pattern=^https?:\/\/.*\.xima.*\.com\/mobi
 
 [MITM]
 # 必须配置 MITM 才能对 HTTPS 请求进行 Map Local / Script 重写
-hostname = %APPEND% ahs-pub.aihuishou.com, *.xima*.*, *.xmcdn.*
+hostname = %APPEND% ahs-pub.aihuishou.com, *.xima*.*, *.xmcdn.*, d.image.i4.cn
