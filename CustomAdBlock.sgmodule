@@ -76,6 +76,9 @@ DOMAIN,ad.iot.360.cn,REJECT
 # 屏蔽ting_Ad
 ^https?:\/\/.*\.xima.*\.com\/ting\/(loading|feed|home)? - reject
 
+# 爱思助手
+^https?:\/\/d\.image\.i4\.cn\/adInfo\/image\/original\/.* - reject
+
 
 [Script]
 # 首页顶部去除直播
