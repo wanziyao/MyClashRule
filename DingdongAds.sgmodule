@@ -3,6 +3,34 @@
 #!system=ios
 #!author=ziyao
 
+[Rule]
+# === 补充：通用第三方广告联盟拦截（针对开屏广告） ===
+# 腾讯广点通 (GDT)
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN-SUFFIX,ugdtimg.com,REJECT
+DOMAIN-KEYWORD,trace.qq.com,REJECT
+DOMAIN,mi.gdt.qq.com,REJECT
+DOMAIN,adsmind.ugdtimg.com,REJECT
+
+# 字节跳动穿山甲 (Pangolin)
+DOMAIN-SUFFIX,pangle.io,REJECT
+DOMAIN-SUFFIX,sgsnssdk.com,REJECT
+DOMAIN-KEYWORD,pangolin,REJECT
+DOMAIN-KEYWORD,-be-pack.pglstatp-toutiao.com,REJECT
+
+# 百度广告联盟
+DOMAIN,mobads.baidu.com,REJECT
+
+# Sigmob / 贝子等其他常见聚合广告SDK
+DOMAIN,sdk.beizi.biz,REJECT
+DOMAIN,api-htp.beizi.biz,REJECT
+DOMAIN,sdk.ssp.admobile.top,REJECT
+DOMAIN,monitor.ssp.admobile.top,REJECT
+DOMAIN,adservice.sigmob.cn,REJECT
+
+# 兜底：拦截带有明显 ad 标记的字节跳动静态资源
+AND,((DOMAIN-KEYWORD,-ad-),(DOMAIN-SUFFIX,byteimg.com)),REJECT
+
 [URL Rewrite]
 # > 叮咚买菜
 # 开屏广告
