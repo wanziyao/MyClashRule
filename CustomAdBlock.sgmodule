@@ -12,6 +12,17 @@ DOMAIN,ad.iot.360.cn,REJECT
 # 爱回收开屏广告，返回 HTTP 200 和空 JSON 数据（等同于 QX 的 reject-200）
 ^https?:\/\/ahs-pub\.aihuishou\.com\/official\/eagle\/cms\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
+# > 盒马
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.sg\.querysinglescene data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.querysinglepage data-type=text data=" " status-code=200
+
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.fc\.recommend\.feedscommondservice data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.crm\.platform\.ma\.recommend data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.mimir\.recommend\.after\.purchase\.activity data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
 ########################################
 # 喜马拉雅净化（Surge 转换自 ddgksf2013 规则）
 # 说明：QX 的 url reject -> Surge [URL Rewrite] - reject
@@ -76,8 +87,15 @@ DOMAIN,ad.iot.360.cn,REJECT
 # 屏蔽ting_Ad
 ^https?:\/\/.*\.xima.*\.com\/ting\/(loading|feed|home)? - reject
 
+##########
 # 爱思助手
+##########
 ^https?:\/\/d\.image\.i4\.cn\/adInfo\/image\/original\/.* - reject
+
+##########
+# 盒马
+##########
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.hippotown\.tabbar\.info - reject
 
 
 [Script]
@@ -96,7 +114,10 @@ ximalaya_category = type=http-response,pattern=^https?:\/\/.*\.xima.*\.com\/disc
 # 去除我的页面Ad_Tag
 ximalaya_homePage = type=http-response,pattern=^https?:\/\/.*\.xima.*\.com\/mobile-user\/v\d\/homePage,requires-body=true,max-size=0,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
 
+# > 盒马
+盒马 = type=http-response, pattern=^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(?>indexpage|mypage|tabfeedstream), script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/freshippo.js, requires-body=true, timeout=60
+
 
 [MITM]
 # 必须配置 MITM 才能对 HTTPS 请求进行 Map Local / Script 重写
-hostname = %APPEND% ahs-pub.aihuishou.com, *.xima*.*, *.xmcdn.*, d.image.i4.cn
+hostname = %APPEND% ahs-pub.aihuishou.com, *.xima*.*, *.xmcdn.*, d.image.i4.cn, acs-m.freshippo.com, acs.m.taobao.com, amdc.m.taobao.com, guide-acs.m.taobao.com
