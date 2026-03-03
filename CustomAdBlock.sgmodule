@@ -1,5 +1,5 @@
 #!name=自定义去广告与净化
-#!desc=拦截 360智慧生活 广告与爱回收开屏广告 + 喜马拉雅净化(墨鱼版规则转换) + 盒马 + 叮咚买菜
+#!desc=拦截 360智慧生活 广告与爱回收开屏广告 + 喜马拉雅净化(墨鱼版规则转换) + 盒马
 #!author=子瑶
 #!category=去广告模块
 #!system=ios
@@ -23,22 +23,6 @@ DOMAIN,ad.iot.360.cn,REJECT
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.crm\.platform\.ma\.recommend data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.mimir\.recommend\.after\.purchase\.activity data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-# > 叮咚买菜
-# VIP开通弹窗
-^https?:\/\/maicai\.api\.ddxq\.mobi\/vip\/getVipAd data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-# 我的页弹窗(暂未启用)
-^https:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/queryMyPagePopup data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-# 我的页-猜你喜欢
-^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/userLike data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-# 购物车顶部VIP横条
-^https?:\/\/maicai\.api\.ddxq\.mobi\/cart\/vipGuide data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-# 购物车-猜你喜欢
-^https?:\/\/maicai\.api\.ddxq\.mobi\/order\/getRecommend data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ########################################
 # 喜马拉雅净化（Surge 转换自 ddgksf2013 规则）
@@ -111,15 +95,6 @@ DOMAIN,ad.iot.360.cn,REJECT
 # > 盒马
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.hippotown\.tabbar\.info - reject
 
-# > 叮咚买菜
-# 开屏广告
-^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ - reject
-# 首页弹窗
-^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/getHomeAdPop - reject
-# 我的页VIP栏净化
-^https?:\/\/gw\.api\.ddxq\.mobi\/vip-app-service\/vip\/my\/page\/advertising - reject
-
-
 [Script]
 # 首页顶部去除直播
 ximalaya_customCategories = type=http-response,pattern=^https?:\/\/.*\.xima.*\.com\/discovery-category\/customCategories,requires-body=true,max-size=0,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
@@ -139,17 +114,6 @@ ximalaya_homePage = type=http-response,pattern=^https?:\/\/.*\.xima.*\.com\/mobi
 # > 盒马
 盒马 = type=http-response, pattern=^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(?>indexpage|mypage|tabfeedstream), script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/freshippo.js, requires-body=true, timeout=60
 
-# > 叮咚买菜
-# 开屏广告及首页推荐流及底部状态栏优化
-叮咚买菜 = type=http-response, pattern=^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/(?>bottomNavi|homeFlowDetail), script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ddxq.js, requires-body=true, timeout=60
-
-# 右下角AI
-叮咚买菜 = type=http-response, pattern=^https?:\/\/maicai\.api\.ddxq\.mobi\/tool\/getConfig, script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ddxq.js, requires-body=true, timeout=60
-
-# 我的页净化
-叮咚买菜 = type=http-response, pattern=^https?:\/\/user\.api\.ddxq\.mobi\/userportal-service\/api\/v\d\/user\/queryMyPage, script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ddxq.js, requires-body=true, timeout=60
-
-
 [MITM]
 # 必须配置 MITM 才能对 HTTPS 请求进行 Map Local / Script 重写
-hostname = %APPEND% ahs-pub.aihuishou.com, *.xima*.*, *.xmcdn.*, d.image.i4.cn, acs-m.freshippo.com, acs.m.taobao.com, amdc.m.taobao.com, guide-acs.m.taobao.com, maicai.api.ddxq.mobi, gw.api.ddxq.mobi, user.api.ddxq.mobi
+hostname = %APPEND% ahs-pub.aihuishou.com, *.xima*.*, *.xmcdn.*, d.image.i4.cn, acs-m.freshippo.com, acs.m.taobao.com, amdc.m.taobao.com, guide-acs.m.taobao.com
