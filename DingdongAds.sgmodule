@@ -11,6 +11,8 @@
 ^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/getHomeAdPop - reject
 # 我的页VIP栏净化
 ^https?:\/\/gw\.api\.ddxq\.mobi\/vip-app-service\/vip\/my\/page\/advertising - reject
+# 广告落地页
+^https?:\/\/gw\.api\.ddxq\.mobi\/web\/ad\/v1\/query\/landingpage - reject
 
 [Body Rewrite]
 # > 叮咚买菜
