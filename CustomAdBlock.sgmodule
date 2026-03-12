@@ -24,6 +24,12 @@ DOMAIN,ad.iot.360.cn,REJECT
 
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.mimir\.recommend\.after\.purchase\.activity data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
+# > 发现精彩
+# 开屏广告
+^https?:\/\/static\.95508\.com\/mmg\/images\/ads\/.+\/(.+1125?.+2436|.+%.+%|.+_.+_) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+^https?:\/\/static\.95508\.com\/mmg\/ciop\/sysabbr\/cmep\/images\/(apppopupads|popupads) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
 ########################################
 # 喜马拉雅净化（Surge 转换自 ddgksf2013 规则）
 # 说明：QX 的 url reject -> Surge [URL Rewrite] - reject
@@ -116,4 +122,4 @@ ximalaya_homePage = type=http-response,pattern=^https?:\/\/.*\.xima.*\.com\/mobi
 
 [MITM]
 # 必须配置 MITM 才能对 HTTPS 请求进行 Map Local / Script 重写
-hostname = %APPEND% ahs-pub.aihuishou.com, *.xima*.*, *.xmcdn.*, d.image.i4.cn, acs-m.freshippo.com, acs.m.taobao.com, amdc.m.taobao.com, guide-acs.m.taobao.com
+hostname = %APPEND% ahs-pub.aihuishou.com, *.xima*.*, *.xmcdn.*, d.image.i4.cn, acs-m.freshippo.com, acs.m.taobao.com, amdc.m.taobao.com, guide-acs.m.taobao.com, static.95508.com
