@@ -102,6 +102,14 @@ DOMAIN,ad.iot.360.cn,REJECT
 # > 盒马
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.hippotown\.tabbar\.info - reject
 
+# > 携程
+^https:\/\/m\.ctrip\.com\/restapi\/soa2\/12673\/queryWeChatHotEvent - reject
+^https:\/\/m\.ctrip\.com\/restapi\/soa2\/13916\/tripAds - reject
+^https?:\/\/m\.ctrip\.com\/html5\/webresource\/js\/iscroll\.js$ - reject
+^https?:\/\/m\.ctrip\.com\/restapi\/[\w\/]+tripAds - reject
+^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/\d+\/json\/getAdsList - reject
+^https?:\/\/ma-adx\.ctrip\.com\/_ma\.gif - reject
+
 [Script]
 # 首页顶部去除直播
 ximalaya_customCategories = type=http-response,pattern=^https?:\/\/.*\.xima.*\.com\/discovery-category\/customCategories,requires-body=true,max-size=0,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
@@ -123,4 +131,4 @@ ximalaya_homePage = type=http-response,pattern=^https?:\/\/.*\.xima.*\.com\/mobi
 
 [MITM]
 # 必须配置 MITM 才能对 HTTPS 请求进行 Map Local / Script 重写
-hostname = %APPEND% ahs-pub.aihuishou.com, *.xima*.*, *.xmcdn.*, d.image.i4.cn, acs-m.freshippo.com, acs.m.taobao.com, amdc.m.taobao.com, guide-acs.m.taobao.com, static.95508.com
+hostname = %APPEND% ahs-pub.aihuishou.com, *.xima*.*, *.xmcdn.*, d.image.i4.cn, acs-m.freshippo.com, acs.m.taobao.com, amdc.m.taobao.com, guide-acs.m.taobao.com, static.95508.com, m.ctrip.com, ma-adx.ctrip.com
