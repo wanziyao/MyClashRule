@@ -1,0 +1,10 @@
+#!name=爱回收 CMS 接口 Mock
+#!desc=将指定的爱回收接口响应拦截并替换为空 JSON 对象 {}
+#!author=Gemini
+
+[Rewrite]
+# 使用 reject-dict 直接返回 200 状态码、{} 数据和 application/json 头
+^https?:\/\/ahs-pub\.aihuishou\.com\/official\/eagle\/cms\/ reject-dict
+
+[MitM]
+hostname = ahs-pub.aihuishou.com
