@@ -8,6 +8,7 @@
 # 360智慧生活云录广告
 DOMAIN,ad.iot.360.cn,REJECT
 DOMAIN,app-stc.zjol.com.cn,REJECT
+DOMAIN,adgw.alipay.com,REJECT
 
 [Map Local]
 # > 爱回收
