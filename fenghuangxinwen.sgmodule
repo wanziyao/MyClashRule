@@ -1,0 +1,34 @@
+    1 #!name=凤凰新闻终极去广告
+    2 #!desc=深度屏蔽凤凰新闻开屏、信息流及第三方统计插件。
+    3 #!system=ios
+    4
+    5 [Rule]
+    6 # 1. 第三方广告 SDK & 聚合平台 (字节/腾讯/数美等)
+    7 DOMAIN-SUFFIX,pangle.io,REJECT
+    8 DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+    9 DOMAIN-SUFFIX,gdt.qq.com,REJECT
+   10 DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+   11 DOMAIN-KEYWORD,pangolin,REJECT
+   12
+   13 # 2. 凤凰新闻自有统计与广告域名
+   14 DOMAIN,support.iclient.ifeng.com,REJECT
+   15 DOMAIN,transmission.ifeng.com,REJECT
+   16 DOMAIN,aaid.uyunad.com,REJECT
+   17
+   18 # 3. 风控、审计与性能监控 (防止广告刷新策略)
+   19 DOMAIN,fp-it.fengkongcloud.com,REJECT
+   20 DOMAIN,wkdcm1.tingyun.com,REJECT
+   21 DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT
+   22
+   23 # 4. 精准拦截自有广告接口 (拦截后由 App 逻辑降级处理，减少空白)
+   24 URL-REGEX,^https?:\/\/api\.iclient\.ifeng\.com\/ClientNews\?.*id=FOCUS24HOURLET,REJECT
+   25 URL-REGEX,^https?:\/\/nine\.ifeng\.com\/.*report,REJECT
+   26 URL-REGEX,^https?:\/\/.*\.ifeng\.com\/.*splash.*,REJECT
+   27 URL-REGEX,^https?:\/\/.*\.ifeng\.com\/ad\/.*,REJECT
+   28
+   29 [URL Rewrite]
+   30 # 开屏广告逻辑劫持 (针对内置的 startad 模块)
+   31 ^https?:\/\/api\.iclient\.ifeng\.com\/wakeupiOS\/ifengnews\/ REJECT
+   32
+   33 [MITM]
+   34 hostname = %APPEND% *.ifeng.com, *.pangle.io, *.pangolin-sdk-toutiao.com, fp-it.fengkongcloud.com, *.tingyun.com, aaid.uyunad.com
