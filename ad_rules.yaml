@@ -1,5 +1,4 @@
 payload:
   # 广告域名屏蔽列表
   - DOMAIN,cdn.cmgadx.com
-  - DOMAIN,ahs-pub.aihuishou.com
   - DOMAIN,api.qbb6.com
