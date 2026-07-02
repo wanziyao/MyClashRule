@@ -11,9 +11,6 @@ DOMAIN,ad.iot.360.cn,REJECT
 DOMAIN,adgw.alipay.com,REJECT
 
 [Map Local]
-# > 爱回收
-# 开屏广告，返回 HTTP 200 和空 JSON 数据（等同于 QX 的 reject-200）
-^https?:\/\/ahs-pub\.aihuishou\.com\/official\/eagle\/cms\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 # > 盒马
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.sg\.querysinglescene data-type=text data="{}" status-code=200 header="Content-Type:application/json"
