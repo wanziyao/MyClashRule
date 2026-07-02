@@ -2,3 +2,11 @@ payload:
   # 广告域名屏蔽列表
   - DOMAIN,cdn.cmgadx.com
   - DOMAIN,api.qbb6.com
+  # 穿山甲域名
+  - DOMAIN-SUFFIX,pangolin-sdk-toutiao.com
+  - DOMAIN-SUFFIX,pglstatp-toutiao.com
+  - DOMAIN-SUFFIX,pangolin-d.outsdk.com
+  - DOMAIN,pangolin.snssdk.com
+  - DOMAIN-KEYWORD,pangolin
+  - DOMAIN-SUFFIX,beizi.biz
+  - DOMAIN-SUFFIX,adx.shop
