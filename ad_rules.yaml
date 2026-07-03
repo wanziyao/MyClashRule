@@ -1,6 +1,6 @@
 payload:
   # 广告域名屏蔽列表
-  - DOMAIN,cmgadx.com
+  - DOMAIN-SUFFIX,cmgadx.com
   - DOMAIN,api.qbb6.com
   # 穿山甲域名
   - DOMAIN-SUFFIX,pangolin-sdk-toutiao.com
