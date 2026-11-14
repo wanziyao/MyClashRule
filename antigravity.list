@@ -4,6 +4,7 @@
 # UPDATED: 2026-07-22
 # DOMAIN: 2
 # TOTAL: 2
-DOMAIN-SUFFIX,googleapis.com
-DOMAIN,signaler-pa.clients6.google.com
-DOMAIN,antigravity-unleash.goog
+payload:
+  - DOMAIN-SUFFIX,googleapis.com
+  - DOMAIN,signaler-pa.clients6.google.com
+  - DOMAIN,antigravity-unleash.goog
